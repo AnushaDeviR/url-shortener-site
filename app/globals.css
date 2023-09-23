@@ -26,4 +26,18 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.shorten-btn {
+  @apply select-none rounded-lg bg-green-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-black shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none cursor-pointer;
+}
 
+.url-field {
+  @apply bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-300;
+}
+
+.mini-url {
+  @apply flex flex-col items-center justify-center mt-24 text-lg border-2 border-gray-200 p-10 hover:border-green-300 rounded-xl;
+}
+
+.url-styling {
+  @apply text-green-300 underline;
+}

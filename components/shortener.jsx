@@ -8,8 +8,6 @@ const Shortener = () => {
   // handleSubmit fn:: to handle shortening of the URL
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("clicked", e.target);
-
     // handle response:
     try {
       const response = await fetch("/api/sb", {
@@ -36,12 +34,14 @@ const Shortener = () => {
 
   return (
     <div className="flex flex-col items-center gap-20">
-      <h1 className="text-gray-50 text-3xl">Shorten your URL🔻</h1>
+      <h1 className="text-gray-50 text-3xl mt-10">Shorten your URL🔻</h1>
       <div>
         <form onSubmit={handleSubmit} className="flex gap-3 items-center">
-          <label htmlFor="links">Enter your URL here: </label>
+          <label htmlFor="links" className="text-xl">
+            Enter URL to <i>minify</i> :
+          </label>
           <input
-            className="text-black "
+            className="url-field"
             type="text"
             id="links"
             name="links"
@@ -49,19 +49,34 @@ const Shortener = () => {
             value={originalUrl}
             onChange={(e) => setOriginalUrl(e.target.value)}
           />
-          <button
-            type="submit"
-            className="select-none rounded-lg bg-green-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-black shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none cursor-pointer"
-          >
+          <button type="submit" className="shorten-btn">
             Shorten
           </button>
         </form>
         {newURL && (
-          <div className="mt-4">
-            <label className="font-bold">Short URL:</label>
-            <a href={newURL} target="_blank" rel="noopener noreferrer">
-              {getURL(newURL)}
-            </a>
+          <div className="mini-url">
+            <div>
+              <label>Minified URL 🔗</label>
+              <a
+                href={newURL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="url-styling"
+              >
+                {getURL(newURL)}
+              </a>
+            </div>
+            <div>
+              <p
+                onClick={() => {
+                  navigator.clipboard.writeText(newURL);
+                  alert("URL copied: " + newURL);
+                }}
+                className="text-sm cursor-pointer mt-4"
+              >
+                📋<i>Click to copy</i>
+              </p>
+            </div>
           </div>
         )}
       </div>
