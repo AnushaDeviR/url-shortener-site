@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) and [SupaBase](https://supabase.com/docs) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This [website](https://minio.vercel.app/) is a [Next.js](https://nextjs.org/) and [SupaBase](https://supabase.com/docs) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Current version:
 
@@ -9,6 +9,7 @@ This is a [Next.js](https://nextjs.org/) and [SupaBase](https://supabase.com/doc
 ## ToDo:
 
 🔃 Brush-up the styling<br>
+🔃 Loading and error handling<br>
 🔃 More useful features... 🪄<br>
 
 ## Development Process:
